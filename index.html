@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Nome] Advocacia — Direito do Consumidor</title>
+<meta name="description" content="Advocacia em Direito do Consumidor e Juizados Especiais Cíveis, com método documental, fundamentação verificada e revisão crítica antes de cada protocolo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f7f4ee;
+    --paper-deep: #efeae0;
+    --ink: #1f2429;
+    --ink-soft: #4a5057;
+    --rule: #d8d1c3;
+    --accent: #5b2a2a;      /* bordô sóbrio */
+    --brass: #8a6d3b;
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+    --max: 1080px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 1.0625rem/1.7 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:hover { color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+
+  .skip { position: absolute; left: -9999px; }
+  .skip:focus { left: 16px; top: 16px; background: var(--ink); color: var(--paper); padding: 8px 12px; z-index: 10; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; margin: 0; }
+  h2 { font-size: clamp(2rem, 4vw, 2.6rem); }
+  h3 { font-size: 1.45rem; }
+  .eyebrow {
+    font: 600 .78rem/1 var(--sans);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin: 0 0 18px;
+  }
+
+  /* Cabeçalho */
+  header.top {
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+    position: sticky; top: 0; z-index: 5;
+  }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px; }
+  .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); }
+  .seal {
+    width: 42px; height: 42px; border: 1px solid var(--accent); color: var(--accent);
+    display: grid; place-items: center; font: 600 1.2rem/1 var(--serif);
+    outline: 1px solid var(--rule); outline-offset: 3px;
+  }
+  .brand-name { font: 600 1.35rem/1.1 var(--serif); letter-spacing: .02em; }
+  .brand-name small { display: block; font: 400 .72rem/1.4 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
+  nav ul { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; }
+  nav a { color: var(--ink-soft); text-decoration: none; font-size: .95rem; }
+  nav a:hover { color: var(--accent); }
+
+  /* Abertura */
+  .hero { padding: 104px 0 96px; border-bottom: 1px solid var(--rule); }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); max-width: 16ch; }
+  .hero p.lead { font-size: 1.2rem; color: var(--ink-soft); max-width: 58ch; margin: 28px 0 40px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-block; padding: 14px 26px; text-decoration: none;
+    font: 600 .92rem/1 var(--sans); letter-spacing: .06em; text-transform: uppercase;
+    border: 1px solid var(--ink);
+  }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+  .btn-ghost { color: var(--ink); }
+  .btn-ghost:hover { background: var(--paper-deep); color: var(--ink); }
+
+  section { padding: 96px 0; }
+  section + section { border-top: 1px solid var(--rule); }
+  .section-head { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; margin-bottom: 56px; align-items: end; }
+  .section-head p { color: var(--ink-soft); margin: 0; }
+
+  /* Atuação */
+  .areas { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); }
+  .area { padding: 36px 36px 36px 0; border-bottom: 1px solid var(--rule); }
+  .area:nth-child(odd) { border-right: 1px solid var(--rule); }
+  .area:nth-child(even) { padding-left: 36px; padding-right: 0; }
+  .area p { color: var(--ink-soft); margin: 12px 0 0; }
+
+  /* Método */
+  .method { background: var(--paper-deep); }
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  .steps li {
+    counter-increment: step;
+    display: grid; grid-template-columns: 90px 1fr; gap: 24px;
+    padding: 32px 0; border-top: 1px solid var(--rule);
+  }
+  .steps li:last-child { border-bottom: 1px solid var(--rule); }
+  .steps li::before {
+    content: counter(step, upper-roman);
+    font: 500 2rem/1 var(--serif); color: var(--brass);
+  }
+  .steps p { margin: 8px 0 0; color: var(--ink-soft); max-width: 68ch; }
+
+  /* Compromissos */
+  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .principles article { border-top: 2px solid var(--accent); padding-top: 22px; }
+  .principles p { color: var(--ink-soft); margin: 12px 0 0; }
+
+  /* Orientação */
+  .guide { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; }
+  .checklist { list-style: none; margin: 0; padding: 0; }
+  .checklist li { padding: 12px 0 12px 30px; border-bottom: 1px solid var(--rule); position: relative; }
+  .checklist li::before { content: "§"; position: absolute; left: 0; top: 11px; font-family: var(--serif); color: var(--brass); font-size: 1.15rem; }
+  .note {
+    border: 1px solid var(--rule); background: #fbf9f5; padding: 32px;
+  }
+  .note h3 { margin-bottom: 12px; }
+  .note p { color: var(--ink-soft); margin: 0 0 14px; }
+  .note p:last-child { margin-bottom: 0; font-size: .9rem; }
+
+  /* Contato */
+  .contact { background: var(--ink); color: var(--paper); }
+  .contact .eyebrow { color: #c3a877; }
+  .contact h2 { color: var(--paper); }
+  .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start; }
+  .contact p { color: #c9c4ba; }
+  .contact dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 14px 24px; }
+  .contact dt { font: 600 .75rem/1.9 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #c3a877; }
+  .contact dd { margin: 0; }
+  .contact a { color: var(--paper); }
+  .contact .btn-primary { background: var(--paper); color: var(--ink); border-color: var(--paper); margin-top: 12px; }
+  .contact .btn-primary:hover { background: #c3a877; border-color: #c3a877; color: var(--ink); }
+
+  footer { padding: 36px 0 48px; font-size: .85rem; color: var(--ink-soft); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+  footer p { margin: 0; max-width: 70ch; }
+
+  @media (max-width: 860px) {
+    nav { display: none; }
+    .hero { padding: 72px 0 64px; }
+    section { padding: 72px 0; }
+    .section-head, .guide, .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+    .areas, .principles { grid-template-columns: 1fr; }
+    .area, .area:nth-child(even) { padding: 28px 0; border-right: 0; }
+    .area:nth-child(odd) { border-right: 0; }
+    .steps li { grid-template-columns: 56px 1fr; gap: 12px; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 16px; }
+    .contact dl { grid-template-columns: 1fr; gap: 2px; }
+    .contact dd { margin-bottom: 12px; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+<!-- Substituir os campos entre colchetes pelos dados reais do escritório antes de publicar. -->
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="[Nome] Advocacia — início">
+      <span class="seal" aria-hidden="true">§</span>
+      <span class="brand-name">[Nome] Advocacia<small>Direito do Consumidor</small></span>
+    </a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#atuacao">Atuação</a></li>
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#compromissos">Compromissos</a></li>
+        <li><a href="#orientacao">Orientação</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Advocacia consumerista</p>
+      <h1>Direito do Consumidor tratado com rigor documental.</h1>
+      <p class="lead">Atuamos na defesa de consumidores diante de vícios de produtos e serviços, recusas de atendimento em garantia e conflitos de comércio eletrônico, do primeiro contato com o fornecedor até o Juizado Especial Cível.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contato">Agendar atendimento</a>
+        <a class="btn btn-ghost" href="#metodo">Conhecer o método</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="atuacao">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Áreas de atuação</p>
+          <h2>Onde atuamos</h2>
+        </div>
+        <p>Concentramos a prática nas relações de consumo. Quando uma demanda exige outra especialidade, dizemos isso com clareza e indicamos o caminho adequado.</p>
+      </div>
+      <div class="areas">
+        <article class="area">
+          <h3>Vícios de produto e serviço</h3>
+          <p>Produtos que apresentam defeito, param de funcionar ou não correspondem à oferta. Atendimento em garantia, reparo, substituição, restituição ou abatimento do preço.</p>
+        </article>
+        <article class="area">
+          <h3>Garantia legal e contratual</h3>
+          <p>A garantia legal independe de termo escrito. Examinamos também a garantia oferecida pelo fornecedor, que se soma à legal, e as recusas baseadas em políticas internas de troca.</p>
+        </article>
+        <article class="area">
+          <h3>Comércio eletrônico</h3>
+          <p>Compras pela internet: direito de arrependimento, informação sobre a oferta, entrega e canais de atendimento que não respondem à reclamação do consumidor.</p>
+        </article>
+        <article class="area">
+          <h3>Juizados Especiais Cíveis</h3>
+          <p>Ações de menor complexidade, com pedidos proporcionais ao que os documentos demonstram e tutela específica para que o fornecedor cumpra sua obrigação.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodo" class="method">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Como trabalhamos</p>
+          <h2>Método antes da tese</h2>
+        </div>
+        <p>Nenhuma peça é protocolada antes de passar por cada uma destas etapas. O objetivo é chegar ao juízo com fatos comprovados, fundamentos conferidos e pedidos que se sustentem.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <div>
+            <h3>Escuta e cronologia</h3>
+            <p>Registramos o relato do cliente e o organizamos em uma cronologia objetiva: datas, pessoas, comunicações e o estado atual do problema.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Prova antes do argumento</h3>
+            <p>Cada afirmação da peça é associada ao documento ou ao depoimento que a sustenta. O que ainda depende de comprovação é identificado e solicitado antes do ajuizamento.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Fundamentação verificada</h3>
+            <p>Os dispositivos legais são conferidos no texto oficial vigente, com registro da data de consulta. Não citamos decisão ou doutrina que não possamos localizar e verificar.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Revisão crítica independente</h3>
+            <p>A minuta é examinada pela perspectiva de quem vai julgá-la e de quem vai contestá-la. As objeções mais fortes são enfrentadas antes, e não depois, do protocolo.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Pedidos proporcionais</h3>
+            <p>Formulamos apenas os pedidos que os fatos demonstrados sustentam, com alternativas subsidiárias quando a lei as prevê. Pedidos excessivos enfraquecem uma causa legítima.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="compromissos">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Compromissos</p>
+          <h2>O que garantimos</h2>
+        </div>
+        <p>Não prometemos resultados. Prometemos seriedade no trabalho e transparência em cada etapa.</p>
+      </div>
+      <div class="principles">
+        <article>
+          <h3>Sigilo e proteção de dados</h3>
+          <p>Documentos pessoais são mantidos separados do material de trabalho e utilizados apenas quando indispensáveis, em conformidade com a Lei Geral de Proteção de Dados.</p>
+        </article>
+        <article>
+          <h3>Avaliação honesta</h3>
+          <p>Informamos os pontos fortes e as fragilidades do caso, o que falta comprovar e os riscos envolvidos, antes de qualquer decisão sobre o ajuizamento.</p>
+        </article>
+        <article>
+          <h3>Linguagem clara</h3>
+          <p>Explicamos prazos, etapas e alternativas em termos compreensíveis, e mantemos o cliente informado sobre cada movimentação relevante.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="orientacao">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Orientação ao consumidor</p>
+          <h2>Antes da primeira reunião</h2>
+        </div>
+        <p>Reunir os documentos abaixo torna a análise mais rápida e precisa. Traga o que tiver; ajudamos a obter o restante.</p>
+      </div>
+      <div class="guide">
+        <ul class="checklist">
+          <li>Nota fiscal e confirmação do pedido</li>
+          <li>Comprovante de pagamento</li>
+          <li>Comprovante de entrega do produto</li>
+          <li>Oferta, anúncio ou termo de garantia</li>
+          <li>Conversas com o fornecedor e números de protocolo</li>
+          <li>Fotos ou vídeos que mostrem o problema</li>
+          <li>Ordens de serviço ou laudos de assistência técnica</li>
+        </ul>
+        <aside class="note">
+          <h3>Prazos importam</h3>
+          <p>O Código de Defesa do Consumidor fixa prazo para reclamar de vícios: 30 dias para produtos não duráveis e 90 dias para produtos duráveis (art. 26). Uma política de troca da loja não reduz esse prazo legal.</p>
+          <p>Registre sua reclamação por escrito e guarde o protocolo. A reclamação comprovada perante o fornecedor tem efeito sobre a contagem do prazo.</p>
+          <p>Informação de caráter geral. A análise de cada caso depende dos fatos e dos documentos concretos.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Contato</p>
+        <h2>Agende um atendimento</h2>
+        <p>Descreva brevemente a situação e informe um meio de retorno. Não envie documentos pessoais por e-mail antes do primeiro contato; indicaremos um canal seguro para isso.</p>
+        <a class="btn btn-primary" href="mailto:[e-mail]?subject=Solicita%C3%A7%C3%A3o%20de%20atendimento">Escrever ao escritório</a>
+      </div>
+      <dl>
+        <dt>Endereço</dt>
+        <dd>[Endereço completo, cidade/UF, CEP]</dd>
+        <dt>Telefone</dt>
+        <dd>[Telefone]</dd>
+        <dt>E-mail</dt>
+        <dd>[E-mail]</dd>
+        <dt>Horário</dt>
+        <dd>[Dias e horário de atendimento]</dd>
+        <dt>Inscrição</dt>
+        <dd>[Nome do advogado responsável] — OAB/[UF] [número]</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; <span id="ano">2026</span> [Nome] Advocacia. OAB/[UF] [número].</p>
+    <p>Conteúdo de caráter exclusivamente informativo, que não constitui consulta jurídica. Publicidade em conformidade com o Código de Ética e Disciplina da OAB e o Provimento nº 205/2021 do Conselho Federal.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("ano").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
